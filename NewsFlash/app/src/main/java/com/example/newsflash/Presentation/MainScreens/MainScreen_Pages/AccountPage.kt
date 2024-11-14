@@ -24,7 +24,7 @@ fun AccountPage (modifier: Modifier = Modifier) {
 
     ) {
         Text(
-            text = "Home Page",
+            text = "Account Page",
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold
         )

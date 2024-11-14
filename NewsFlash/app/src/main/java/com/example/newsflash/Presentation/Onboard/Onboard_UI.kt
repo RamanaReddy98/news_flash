@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -63,7 +64,6 @@ fun SigninOnboard(navController: NavController, modifier: Modifier = Modifier) {
         }
         Spacer(modifier = Modifier.height(22.dp))
 
-
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxWidth().padding(20.dp)
@@ -86,7 +86,7 @@ fun SigninOnboard(navController: NavController, modifier: Modifier = Modifier) {
                 )
             }
 
-            Spacer(modifier = Modifier.height(20.dp)) // Add 20 dp gap between buttons
+            Spacer(modifier = Modifier.height(10.dp)) // Add 20 dp gap between buttons
 
             Button(
                 onClick = { navController.navigate("SignUp") },
