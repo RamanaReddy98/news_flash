@@ -36,70 +36,65 @@ import com.example.newsflash.R
 import com.example.newsflash.ui.theme.customFontFamily
 
 @Composable
-fun HomePage (modifier: Modifier = Modifier){
-Column (
-    modifier = modifier
-        .fillMaxSize(),
-
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.Start
-
-) {
-
-    Row (modifier= Modifier.padding(15.dp)){
-        Image(painter = painterResource(id = R.drawable.signin), contentDescription = "PFP", modifier= Modifier.size(60.dp).clip(MaterialTheme.shapes.extraLarge))
-        Column {
-            Text(
-                text = "Hey there,", fontWeight = FontWeight.Light, fontSize = 15.sp,
-                fontFamily = customFontFamily,
+fun HomePage(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.Start
+    ) {
+        // Header Section
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.signin),
+                contentDescription = "Profile Picture",
+                modifier = Modifier
+                    .size(60.dp)
+                    .clip(MaterialTheme.shapes.extraLarge)
             )
-            Text(
-                text = "Alex, how are you?,", fontWeight = FontWeight.SemiBold, fontSize = 25.sp,
-                fontFamily = customFontFamily,
-            )
-        }
-    }
-
-    Spacer(
-        modifier = Modifier
-            .height(5.dp)
-            .fillMaxWidth()
-
-            .drawBehind {
-                // Draw a slim line at the bottom
-                drawLine(
-                    color = Color.White,
-                    start = androidx.compose.ui.geometry.Offset(0f, size.height), // Start at bottom-left
-                    end = androidx.compose.ui.geometry.Offset(size.width, size.height), // End at bottom-right
-                    strokeWidth = 1.dp.toPx() // Border thickness
+            Spacer(modifier = Modifier.width(8.dp))
+            Column {
+                Text(
+                    text = "Hey there,",
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontWeight = FontWeight.Light
+                    )
+                )
+                Text(
+                    text = "Alex, how are you?",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.SemiBold
+                    )
                 )
             }
-    )
+        }
 
+        // Divider
+        androidx.compose.material3.Divider(
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
+            thickness = 1.dp,
+            modifier = Modifier.fillMaxWidth()
+        )
 
-    Column(
-        modifier = Modifier
-            .verticalScroll(rememberScrollState())
-    ) {
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
-        news_shower_Card(Modifier)
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Content Section
+        Column(
+            modifier = Modifier.verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(5.dp)
+        ) {
+            repeat(10) { // Dynamically generate cards
+                news_shower_Card(
+                    Modifier.fillMaxWidth()
+                )
+            }
+        }
     }
-
-}
 }

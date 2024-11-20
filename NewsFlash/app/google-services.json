@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "149534392246",
+    "project_id": "newsflash-cc040",
+    "storage_bucket": "newsflash-cc040.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149534392246:android:3819cff373fe70221a4b17",
+        "android_client_info": {
+          "package_name": "com.example.newsflash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCXXMFNJQYc-7mc5vQq-qUvK1KmXOQkQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
