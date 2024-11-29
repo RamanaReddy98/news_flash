@@ -13,7 +13,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsflash.R
-import com.example.newsflash.ui.theme.customFontFamily
 
 @Composable
 fun Header(
@@ -23,30 +22,30 @@ fun Header(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = 16.dp, vertical = 25.dp), // Adjust padding for balance
         verticalAlignment = Alignment.CenterVertically
+
     ) {
+        // Back Arrow
         Image(
             painter = painterResource(id = R.drawable.arrow),
             contentDescription = "Go back",
             modifier = Modifier
-                .size(28.dp)
-                .rotate(90f)
-                .clickable { onArrowClick() } // Trigger navigation action on click
+                .size(24.dp) // Size to match the minimal aesthetic
+                .rotate(90f) // Ensure the arrow is in its correct orientation
+                .clickable { onArrowClick() }
         )
 
-        Spacer(modifier = Modifier.weight(1f)) // Spacer pushes text to center
+        Spacer(modifier = Modifier.weight(1f)) // Push text to the center
 
+        // Header Text
         Text(
-            text = headerText, // Use headerText parameter
-            fontSize = 22.sp,
-            fontFamily = customFontFamily,
-            fontWeight = FontWeight.SemiBold,
+            text = headerText,
+            fontSize = 20.sp, // Slightly smaller font size for modern look
+            fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.CenterVertically)
         )
 
-        Spacer(modifier = Modifier.weight(1f)) // Balances space on the right side
+        Spacer(modifier = Modifier.weight(1f)) // Balance right side
     }
-
-    Spacer(modifier = Modifier.height(15.dp))
 }

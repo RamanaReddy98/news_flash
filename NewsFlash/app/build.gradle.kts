@@ -66,6 +66,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("io.coil-kt.coil3:coil-compose:3.0.3")
     implementation("com.google.firebase:firebase-database:21.0.0")
     testImplementation("junit:junit:4.13.2")
     implementation("io.coil-kt:coil-compose:2.4.0")
@@ -77,6 +78,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation ("com.squareup.retrofit2:retrofit:2.9.0")
     debugImplementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
     val nav_version = "2.8.3"
 
     implementation("androidx.navigation:navigation-compose:$nav_version")

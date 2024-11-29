@@ -30,6 +30,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
 import coil.size.Scale
 import com.example.newsflash.R
@@ -39,15 +41,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Composable
 fun news_shower_Card(
+    navController: NavController,
     modifier: Modifier = Modifier,
     imageUrl: String = "https://media.tegna-media.com/assets/CCT/images/b9edd90e-228e-475c-8306-8fea2ad8ecc0/20241117T050402/b9edd90e-228e-475c-8306-8fea2ad8ecc0_16x9.jpg",
     title: String = "Breaking News: Major Event Unfolds",
     description: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    publisher: String = "Published by Test"
-) {
+    publisher: String = "Published by Test",
+    newsId: Int=123,
+
+    ) {
     Row(
         modifier = modifier
-            .clickable { /* Handle click */ }
+            .clickable {
+                // Navigate to the NewsDetailPage and pass the newsId and title
+                navController.navigate("News_Details/$newsId/$title")
+            }
             .padding(8.dp)
             .clip(MaterialTheme.shapes.medium)
 
@@ -56,10 +64,10 @@ fun news_shower_Card(
             .padding(8.dp)
     ) {
         // Image Section
-        Image(
-            painter = rememberImagePainter(imageUrl),
+        AsyncImage(
+           model = "https://image.pollinations.ai/prompt/Breaking",
             contentDescription = null,
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .size(100.dp)
                 .clip(MaterialTheme.shapes.small)
