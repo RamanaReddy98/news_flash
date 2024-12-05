@@ -1,5 +1,6 @@
 package com.example.newsflash.Presentation.MainScreens
 
+import ProfileScreen
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -21,7 +22,7 @@ import androidx.navigation.NavHostController
 
 import com.example.newsflash.Presentation.MainScreens.MainScreen_Pages.HomePage
 import com.example.newsflash.Presentation.MainScreens.MainScreen_Pages.Nots_Page
-import com.example.newsflash.Presentation.Screens.ProfileScreen
+
 import com.example.newsflash.R
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

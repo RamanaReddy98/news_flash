@@ -25,12 +25,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 
+import androidx.compose.foundation.clickable
+
 @Composable
-fun CategoryItem(category: Category) {
+fun CategoryItem(category: Category, onClick: (Category) -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.width(100.dp)
+        modifier = Modifier
+            .width(100.dp)
+            .clickable { onClick(category) } // Add the click listener
     ) {
         Box(
             contentAlignment = Alignment.Center,
@@ -58,5 +62,6 @@ fun CategoryItem(category: Category) {
         )
     }
 }
+
 
 data class Category(val name: String, val imageRes: Int)

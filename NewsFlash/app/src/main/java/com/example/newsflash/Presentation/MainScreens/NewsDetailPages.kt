@@ -1,9 +1,7 @@
 package com.example.newsflash.Presentation.MainScreens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,15 +20,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import coil.compose.AsyncImage
 import com.example.newsflash.Presentation.Components.Header
-import com.example.newsflash.Presentation.Components.similarCard
 import com.example.newsflash.R
 
 @Composable
 fun NewsDetailPage(
     navController: NavController = rememberNavController(),
-    newsId: Int,
-    newsTitle: String
+    newsId: String,
+    newsTitle: String,
+    content:String,
+    img:String
+
 ) {
     // Make the whole page scrollable
     Column(
@@ -45,9 +46,9 @@ fun NewsDetailPage(
         )
 
         // Image Section
-        Image(
-            painter = painterResource(id = R.drawable.sample), // Replace with your image resource
-            contentDescription = "News Image",
+        AsyncImage(
+            model = img,
+            contentDescription = null,
             contentScale = ContentScale.FillWidth,
             modifier = Modifier
                 .fillMaxWidth()
@@ -59,6 +60,7 @@ fun NewsDetailPage(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
+                .verticalScroll(rememberScrollState())
         ) {
             // Date and Read Time
             Text(
@@ -82,7 +84,7 @@ fun NewsDetailPage(
 
             // Author Name
             Text(
-                text = "By Eren Yeager",
+                text = "By $newsId",
                 fontSize = 14.sp,
                 color = Color.Gray,
                 lineHeight = 20.sp
@@ -92,20 +94,13 @@ fun NewsDetailPage(
 
             // Article Content
             Text(
-                text = "So you’ve got a new computer. Awesome! That humble metal box is the key to a wide world of potential. It can bring new levels of productivity, help you juggle your workload, or simply entertain your family by blowing off some steam...",
+                text = content,
                 fontSize = 16.sp,
                 lineHeight = 24.sp,
                 color = Color.Black
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
 
-            Text(
-                text = "But a new PC isn’t like a new car; you can’t just turn a key and put the pedal to the metal. Performing just a few simple activities when you first fire it up can help it be safer, faster, and better poised for the future.",
-                fontSize = 16.sp,
-                lineHeight = 24.sp,
-                color = Color.Black
-            )
         }
 
         // Horizontal Scrolling Row of Cards
